@@ -23,4 +23,23 @@ class Movie
     {
         return $this->jpeg;
     }
+
+    public static function findById(int $id): Cover
+    {
+        $stmt = MyPdo::getInstance()->prepare(
+            <<<SQL
+            SELECT *
+            FROM Image
+            WHERE id = :imageId;
+            SQL
+        );
+        $stmt->bindParam(':imageId', $id);
+        $stmt->execute();
+        $stmt->setFetchMode(PDO::FETCH_CLASS, Cover::class);
+        $res = $stmt->fetch();
+        if (!$res) {
+            //add throw EntityNotFound
+        }
+        return $res;
+    }
 }
