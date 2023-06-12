@@ -1,0 +1,17 @@
+{
+    "name": "mosca/sae",
+    "description": "SAE2 Développement d'une application web de consultation de films",
+    "license": "Copyleft",
+    "autoload": {
+        "psr-4": {
+            "": "src/"
+        }
+    },
+    "authors": [
+        {
+            "name": "Romain MONNEY",
+            "email": "romain.monney@etudiant.univ-reims.fr"
+        }
+    ],
+    "require": {}
+}
