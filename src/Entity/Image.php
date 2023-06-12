@@ -3,7 +3,10 @@ declare(strict_types=1);
 
 namespace Entity;
 
-class Movie
+use Database\MyPdo;
+use PDO;
+
+class Image
 {
     private int $id;
     private string $jpeg;
@@ -24,7 +27,7 @@ class Movie
         return $this->jpeg;
     }
 
-    public static function findById(int $id): Cover
+    public static function findById(int $id): Image
     {
         $stmt = MyPdo::getInstance()->prepare(
             <<<SQL
@@ -35,7 +38,7 @@ class Movie
         );
         $stmt->bindParam(':imageId', $id);
         $stmt->execute();
-        $stmt->setFetchMode(PDO::FETCH_CLASS, Cover::class);
+        $stmt->setFetchMode(PDO::FETCH_CLASS, Image::class);
         $res = $stmt->fetch();
         if (!$res) {
             //add throw EntityNotFound
