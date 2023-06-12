@@ -42,6 +42,7 @@ class Image
         $res = $stmt->fetch();
         if (!$res) {
             //add throw EntityNotFound
+            throw new EntityNotFound('Image non trouvée');
         }
         return $res;
     }
