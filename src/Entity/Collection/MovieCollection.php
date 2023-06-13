@@ -10,14 +10,14 @@ use PDO;
 
 class MovieCollection
 {
-    /** Permet de créer une instance de Artist pour chaque artiste répertorié dans la base de données
-     * @return Movie[] tableau d'artistes
+    /** Permet de créer une instance de film pour chaque film répertorié dans la base de données
+     * @return Movie[] tableau de film
      */
     public static function findAll(): array
     {
         $stmt = MyPdo::getInstance()->prepare(
             <<<'SQL'
-            SELECT id, title
+            SELECT *
             FROM movie
             ORDER BY title
             SQL
