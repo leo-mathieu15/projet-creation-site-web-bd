@@ -16,8 +16,11 @@ $movies = (new Entity\Collection\MovieCollection())->findAll();
 $webPage->appendContent("<header>Films</header>");
 $webPage->appendContent("<div class='films'>");
 
-for ($i=0;$i<count($movies);++$i) {
-    $webPage->appendContent("<a id='box' href='movie.php?Id={$movies[$i]->getId()}'>".$webPage->escapeString($movies[$i]->getTitle())."</a><br/>");
+foreach ($movies as $movie) {
+    $webPage->appendContent("<a id='box' href='movie.php?Id={$movie->getId()}'>".$webPage->escapeString($movie->getTitle()));
+    $webPage->appendContent(<<<HTML
+<img class="movie__poster" src="image.php?Id={$movie->getPosterId()}" alt="poster de {$movie->getTitle()}"></a><br/>
+HTML);
 }
 
 $webPage->appendContent("</div>");
