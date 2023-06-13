@@ -6,7 +6,6 @@ use Database\MyPdo;
 
 $webPage = new WebPage();
 
-MyPDO::setConfiguration('mysql:host=mysql;dbname=monn0042_movie;charset=utf8', 'monn0042', 'monn0042');
 
 $movie = Movie::findById((int)$_GET['Id']);
 
