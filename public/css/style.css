@@ -21,7 +21,7 @@
     flex-wrap: wrap;
     margin-top:auto;
     width:auto;
-    height:94vh;
+    height:90vh;
     overflow: auto;
     flex-grow:1;
 }
@@ -54,4 +54,16 @@ footer{
     border-style:double;
     border-color:#FFFFFF;
     font-size: 1.4em;
+}
+
+.details{
+    display: flex;
+    justify-content: center;
+    flex-direction: row;
+    flex-wrap: wrap;
+    margin-top:auto;
+    width:auto;
+    height:90vh;
+    overflow: auto;
+    flex-grow:1;
 }
