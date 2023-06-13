@@ -7,23 +7,18 @@ require_once '../vendor/autoload.php';
 use Database\MyPdo;
 use Html\WebPage;
 
-$webPage = new WebPage("people");
+$webPage = new WebPage("Films");
 
 MyPDO::setConfiguration('mysql:host=mysql;dbname=monn0042_movie;charset=utf8', 'monn0042', 'monn0042');
-$stmt = MyPDO::getInstance()->prepare(
-    <<<'SQL'
-    SELECT id, name
-    FROM people
-    ORDER BY name
-SQL
-);
+$movies = (new Entity\Collection\MovieCollection())->findAll();
 
-$stmt->execute();
+$webPage->appendContent("<div class='films'>");
 
-while (($ligne = $stmt->fetch()) !== false) {
-    $ligne_cor = $webPage->escapeString("{$ligne['name']}");
-    $webPage->appendContent("<p>$ligne_cor\n");
+for ($i=0;$i<count($movies);++$i) {
+    $webPage->appendContent("<a href='movie.php?Id={$movies[$i]->getId()}'>".$webPage->escapeString($movies[$i]->getTitle())."</a><br/>");
 }
+
+$webPage->appendContent("</div>");
 
 $webPage = $webPage->toHTML();
 echo $webPage;
