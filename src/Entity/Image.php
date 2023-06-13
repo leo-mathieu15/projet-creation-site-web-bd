@@ -32,7 +32,7 @@ class Image
         $stmt = MyPdo::getInstance()->prepare(
             <<<SQL
             SELECT *
-            FROM Image
+            FROM image
             WHERE id = :imageId;
             SQL
         );
