@@ -13,28 +13,27 @@ $webPage = new WebPage("Films");
 MyPDO::setConfiguration('mysql:host=mysql;dbname=monn0042_movie;charset=utf8', 'monn0042', 'monn0042');
 $movies = (new Entity\Collection\MovieCollection())->findAll();
 
+$webPage->appendContent("<header>Films</header>");
 $webPage->appendContent("<div class='films'>");
 
 for ($i=0;$i<count($movies);++$i) {
     $webPage->appendContent("<a id='box' href='movie.php?Id={$movies[$i]->getId()}'>".$webPage->escapeString($movies[$i]->getTitle())."</a><br/>");
-    $image = new Image;
-    $postId = $movies[$i]->getPosterId();
-    $webPage->appendContent("<img id='photo_film' src='{$image->findById($postId)}'>");
 }
 
 $webPage->appendContent("</div>");
 
-$webPage->appendCss("
+$webPage->appendCss("     
 #box {
     display: flex;
     flex-direction: column;
     align-items: center;
-    padding: 2%;
-    margin: 2%;
-    width: 10em;
-    height: 10em;
-    border-radius: 10%;
-    background: #D7D7D7;
+    padding: 1%;
+    margin: 1%;
+    width: 9em;
+    height: 9em;
+    border-style: solid;
+    border-color:#FFFFFF;
+    background: #00AAFF;
     text-decoration: none;
     color: black;
 }
@@ -44,8 +43,43 @@ $webPage->appendCss("
     justify-content: center;
     flex-direction: row;
     flex-wrap: wrap;
+    margin-top:auto;
+    width:auto;
+    height:94vh;
+    overflow: auto;
+    flex-grow:1;
+}
+
+html, body{
+    height:100%;
+    margin:0;
+    background-color:black;
+}
+
+@media screen and (max-height:640px){
+    .films {
+        height:85vh;
+    }
+}
+
+header{
+    background-color:#000088;
+    color:#FFFFFF;
+    text-align:center;
+    border-style:double;
+    border-color:#FFFFFF;
+}
+
+footer{
+    background-color:#000066;
+    color:#FFFFFF;
+    text-align:center;
+    border-style:double;
+    border-color:#FFFFFF;
 }
 ");
+
+$webPage->appendContent("<footer>Dernière modification : {$webPage->getLastModification()}</footer>");
 
 $webPage = $webPage->toHTML();
 echo $webPage;
