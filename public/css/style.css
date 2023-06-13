@@ -11,6 +11,7 @@
     background: #00AAFF;
     text-decoration: none;
     color: black;
+    border-radius: 30px;
 }
 
 .films {
@@ -38,17 +39,19 @@ html, body{
 }
 
 header{
-    background-color:#000088;
-    color:#FFFFFF;
+    background-color:darkcyan;
+    color:black;
     text-align:center;
     border-style:double;
     border-color:#FFFFFF;
+    font-size: 2em;
 }
 
 footer{
-    background-color:#000066;
-    color:#FFFFFF;
+    background-color:darkcyan;
+    color:black;
     text-align:center;
     border-style:double;
     border-color:#FFFFFF;
+    font-size: 1.4em;
 }
