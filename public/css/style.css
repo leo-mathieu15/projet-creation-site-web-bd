@@ -14,7 +14,7 @@
     border-radius: 30px;
 }
 
-.films {
+.films, .details {
     display: flex;
     justify-content: center;
     flex-direction: row;
@@ -30,6 +30,20 @@ html, body{
     height:100%;
     margin:0;
     background-color:gray;
+}
+.acteur{
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    flex-wrap: wrap;
+    margin-top:auto;
+    width:auto;
+    height:94vh;
+    overflow: auto;
+    flex-grow:1;
+}
+.movie__poster{
+    width : auto;
 }
 
 @media screen and (max-height:640px){
