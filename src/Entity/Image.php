@@ -5,6 +5,7 @@ namespace Entity;
 
 use Database\MyPdo;
 use PDO;
+use \Entity\Exception\EntityNotFound;
 
 class Image
 {
@@ -27,6 +28,12 @@ class Image
         return $this->jpeg;
     }
 
+    /**
+     * Return the image based of the id given, if the id does not match anything, throw EntityNotFound
+     * @param int $id
+     * @return Image
+     * @throws EntityNotFound
+     */
     public static function findById(int $id): Image
     {
         $stmt = MyPdo::getInstance()->prepare(
@@ -41,7 +48,6 @@ class Image
         $stmt->setFetchMode(PDO::FETCH_CLASS, Image::class);
         $res = $stmt->fetch();
         if (!$res) {
-            //add throw EntityNotFound
             throw new EntityNotFound('Image non trouvée');
         }
         return $res;
