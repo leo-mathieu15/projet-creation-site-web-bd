@@ -30,7 +30,7 @@ foreach ($actors as $actor) {
     $cast = Cast::findById($movie->getId(),$actor->getId());
     $webPage->appendContent(<<<HTML
 <div class="acteurFilm">
-<img class="Actor__vignette" src="image.php?Id={$actor->getAvatarId()}" alt="image de {$actor->getname()}"></a>
+<img class="Actor__vignette" src="image.php?Id={$actor->getAvatarId()}" alt="poster de {$actor->getname()}"></a>
 <a>{$actor->getName()}</a>
 <a>{$cast->getRole()}</a>
 </div>

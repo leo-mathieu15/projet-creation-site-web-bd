@@ -11,9 +11,9 @@ use PDO;
 Class Actor {
 
     private int $id;
-    private int $avatarId;
-    private string $birthday;
-    private string $deathday;
+    private mixed $avatarId;
+    private mixed $birthday;
+    private mixed $deathday;
     private string $name;
     private string $biography;
     private string $placeOfBirth;
@@ -27,25 +27,25 @@ Class Actor {
     }
 
     /**
-     * @return int
+     * @return mixed
      */
-    public function getAvatarId(): int
+    public function getAvatarId(): mixed
     {
         return $this->avatarId;
     }
 
     /**
-     * @return string
+     * @return mixed
      */
-    public function getBirthday(): string
+    public function getBirthday(): mixed
     {
         return $this->birthday;
     }
 
     /**
-     * @return string
+     * @return mixed
      */
-    public function getDeathday(): string
+    public function getDeathday(): mixed
     {
         return $this->deathday;
     }
