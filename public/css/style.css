@@ -62,7 +62,7 @@ html, body{
     overflow: auto;
     flex-grow:1;
 }
-.movie{
+.movie__info{
     display: flex;
     justify-content: center;
     flex-direction: column;
