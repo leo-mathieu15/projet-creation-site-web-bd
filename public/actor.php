@@ -23,7 +23,7 @@ $webPage->appendContent(<<<HTML
 <div class="details">
 <a class="basicinfo">{$actor->getname()}</a><br>
 <a class="basicinfo">{$actor->getPlaceOfBirth()}</a><br>
-<a class="basicinfo">{$actor->getBirthday()}-{$actor->getDeathday()}</a><br>
+<a class="basicinfo">Naissance : {$actor->getBirthday()}<br>Décès : {$actor->getDeathday()}</a>
 <a class="basicinfo">{$actor->getBiography()}</a><br>
 </div></div>
 HTML);
