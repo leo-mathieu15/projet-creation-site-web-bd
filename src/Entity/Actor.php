@@ -11,9 +11,9 @@ use PDO;
 Class Actor {
 
     private int $id;
-    private int $avatarId;
-    private string $birthday;
-    private string $deathday;
+    private mixed $avatarId;
+    private mixed $birthday;
+    private mixed $deathday;
     private string $name;
     private string $biography;
     private string $placeOfBirth;
@@ -27,25 +27,25 @@ Class Actor {
     }
 
     /**
-     * @return int
+     * @return mixed
      */
-    public function getAvatarId(): int
+    public function getAvatarId(): mixed
     {
         return $this->avatarId;
     }
 
     /**
-     * @return string
+     * @return mixed
      */
-    public function getBirthday(): string
+    public function getBirthday(): mixed
     {
         return $this->birthday;
     }
 
     /**
-     * @return string
+     * @return mixed
      */
-    public function getDeathday(): string
+    public function getDeathday(): mixed
     {
         return $this->deathday;
     }
@@ -95,6 +95,26 @@ Class Actor {
         $res = $stmt->fetch();
         if (!$res) {
             throw new EntityNotFoundException('Acteur non trouvé');
+        }
+        return $res;
+    }
+
+    public function getRole(int $movieId) : string {
+        $stmt = MyPdo::getInstance()->prepare(
+            <<<SQL
+            SELECT role
+            FROM cast
+            WHERE peopleId = :actorId
+            AND movieId = :movieId;
+            SQL
+        );
+        $stmt->bindParam(':actorId', $this->id);
+        $stmt->bindParam(':movieId', $movieId);
+        $stmt->execute();
+        $stmt->setFetchMode(PDO::FETCH_CLASS, Actor::class);
+        $res = $stmt->fetch();
+        if (!$res) {
+            throw new EntityNotFoundException('rôle non trouvé');
         }
         return $res;
     }
