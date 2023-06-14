@@ -98,24 +98,4 @@ Class Actor {
         }
         return $res;
     }
-
-    public function getRole(int $movieId) : string {
-        $stmt = MyPdo::getInstance()->prepare(
-            <<<SQL
-            SELECT role
-            FROM cast
-            WHERE peopleId = :actorId
-            AND movieId = :movieId;
-            SQL
-        );
-        $stmt->bindParam(':actorId', $this->id);
-        $stmt->bindParam(':movieId', $movieId);
-        $stmt->execute();
-        $stmt->setFetchMode(PDO::FETCH_CLASS, Actor::class);
-        $res = $stmt->fetch();
-        if (!$res) {
-            throw new EntityNotFoundException('rôle non trouvé');
-        }
-        return $res;
-    }
 }
