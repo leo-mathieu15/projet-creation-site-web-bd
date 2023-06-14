@@ -17,8 +17,9 @@ $webPage->appendContent("<header>Film - {$actor->getName()}</header>");
 $webPage->appendContent("<div class='acteur'>");
 
 $webPage->appendContent(<<<HTML
+
 <a>
-<img class="movie__poster" src="image.php?Id={$actor->getAvatarId()}" alt="poster de {$actor->getname()}"></a>
+<img class="Actor__vignette" src="image.php?Id={$actor->getAvatarId()}" alt="poster de {$actor->getname()}"></a>
 <div class='details'>
 <div>{$actor->getname()}</div><br>
 <div>{$actor->getPlaceOfBirth()}</div><br>
