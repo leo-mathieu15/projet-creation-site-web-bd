@@ -1,10 +1,10 @@
 <?php
 
 use Entity\Movie;
+use Entity\Cast;
 use Html\WebPage;
-use Database\MyPdo;
 use Entity\Collection\ActorCollection;
-use Entity\Exception\EntityNotFoundException;
+
 
 $webPage = new WebPage();
 
@@ -27,11 +27,12 @@ $webPage->appendContent(<<<HTML
 <a>{$movie->getOverview()}</a><br/></div></div><div>
 HTML);
 foreach ($actors as $actor) {
+    $cast = Cast::findById($movie->getId(),$actor->getId());
     $webPage->appendContent(<<<HTML
 <div class="acteurFilm">
 <img class="Actor__vignette" src="image.php?Id={$actor->getAvatarId()}" alt="poster de {$actor->getname()}"></a>
 <a>{$actor->getName()}</a>
-<a></a>
+<a>{$cast->getRole()}</a>
 </div>
 HTML);
 }
