@@ -13,8 +13,11 @@
     color: black;
     border-radius: 30px;
 }
+#box:hover{
+    background: darkblue;
+}
 
-.films, .details {
+.films {
     display: flex;
     justify-content: center;
     flex-direction: row;
@@ -26,6 +29,22 @@
     flex-grow:1;
 }
 
+.details
+{
+    display: flex;
+    justify-content: center;
+    flex-direction: row;
+    flex-wrap: wrap;
+    margin-top:auto;
+    width:auto;
+    height:94vh;
+    overflow: auto;
+    flex-grow:1;
+}
+.basicinfo {
+    display: flex;
+    flex-direction: row;
+}
 html, body{
     height:100%;
     margin:0;
@@ -42,10 +61,34 @@ html, body{
     overflow: auto;
     flex-grow:1;
 }
-.movie__poster{
-    width : auto;
+.movie{
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    flex-wrap: wrap;
+    margin-top:auto;
+    width:auto;
+    height:94vh;
+    overflow: auto;
+    flex-grow:1;
 }
-
+.movie__poster {
+    overflow: auto;
+}
+a {
+    padding: 1%;
+    margin: 1%;
+    width: auto;
+    height: auto;
+    font-size: 1em;
+    border-style: solid;
+    border-color:#FFFFFF;
+    background: #00AAFF;
+    text-decoration: none;
+    color: black;
+    border-radius: 30px;
+    overflow: auto;
+}
 @media screen and (max-height:640px){
     .films {
         height:85vh;
@@ -58,7 +101,7 @@ header{
     text-align:center;
     border-style:double;
     border-color:#FFFFFF;
-    font-size: 2em;
+    font-size: 1.5em;
 }
 
 footer{
@@ -67,5 +110,4 @@ footer{
     text-align:center;
     border-style:double;
     border-color:#FFFFFF;
-    font-size: 1.4em;
 }
