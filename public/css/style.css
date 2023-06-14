@@ -58,9 +58,11 @@ html, body{
     flex-direction: column;
     flex-wrap: wrap;
     margin-top:auto;
-    width:70%;
-    height:94vh;
+    height:auto;
+    width:fit-content;
+    overflow: auto;
     flex-grow:1;
+    background-color: gray;
 }
 .movie__info{
     display: flex;
@@ -71,11 +73,11 @@ html, body{
     height:65vh;
 }
 
-.movie__poster {
+.movie__poster, .Actor__vignette{
     overflow: auto;
     height:55%;
 }
-a  {
+a{
     padding: 1%;
     margin: 1%;
     width: auto;
@@ -147,7 +149,17 @@ footer {
     background: #00AAFF;
     text-decoration: none;
 }
+
 #boxClick:hover{
     background: darkblue;
     color: white;
+}
+
+.actor__infos{
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    flex-wrap: wrap;
+    width:60%;
+    height:65vh;
 }
