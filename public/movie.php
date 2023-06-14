@@ -31,7 +31,7 @@ foreach ($actors as $actor) {
     $webPage->appendContent(<<<HTML
 <div class="acteurFilm">
 <img class="Actor__vignette" src="image.php?Id={$actor->getAvatarId()}" alt="poster de {$actor->getname()}"></a>
-<a href='actor.php?Id={$actor->getId()}' id="boxNomActeur">{$actor->getName()}</a>
+<a href='actor.php?Id={$actor->getId()}' id="boxClick">{$actor->getName()}</a>
 <a id="boxAutre">{$cast->getRole()}</a>
 </div>
 HTML);
