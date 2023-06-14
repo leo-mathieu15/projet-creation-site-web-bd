@@ -7,6 +7,7 @@ namespace Entity\Collection;
 use Database\MyPdo;
 use Entity\Movie;
 use PDO;
+use Entity\Exception\EntityNotFoundException;
 
 class MovieCollection
 {
@@ -24,5 +25,24 @@ class MovieCollection
         );
         $stmt->execute();
         return $stmt->fetchAll(PDO::FETCH_CLASS, Movie::class);
+    }
+
+    public static function findByIdpeople(int $id): array
+    {
+        $stmt = MyPdo::getInstance()->prepare(
+            <<<'SQL'
+            SELECT m.*
+            FROM movie m 
+            join cast c on m.id = c.movieId
+            WHERE peopleId = :id
+            SQL
+        );
+        $stmt->bindParam(':id', $id);
+        $stmt->execute();
+        $res = $stmt->fetchALL(PDO::FETCH_CLASS, Movie::class);
+        if (!$res) {
+            throw new EntityNotFoundException('acteur non trouvée');
+        }
+        return $res;
     }
 }
