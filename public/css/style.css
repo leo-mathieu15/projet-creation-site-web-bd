@@ -15,6 +15,7 @@
 }
 #box:hover{
     background: darkblue;
+    color: white;
 }
 
 .films {
@@ -36,10 +37,10 @@
     flex-direction: row;
     flex-wrap: wrap;
     margin-top:auto;
-    width:auto;
     height:94vh;
     overflow: auto;
     flex-grow:1;
+    background-color: darkgray;
 }
 .basicinfo {
     display: flex;
@@ -70,25 +71,25 @@ html, body{
     width:auto;
     height:94vh;
     overflow: auto;
-    flex-grow:1;
 }
 .movie__poster {
     overflow: auto;
 }
-a {
+a  {
     padding: 1%;
     margin: 1%;
     width: auto;
-    height: auto;
+    height: 1.7em;
     font-size: 1em;
     border-style: solid;
     border-color:#FFFFFF;
     background: #00AAFF;
     text-decoration: none;
     color: black;
-    border-radius: 30px;
-    overflow: auto;
+    border-radius: 0px;
+    overflow: initial;
 }
+
 @media screen and (max-height:640px){
     .films {
         height:85vh;
@@ -113,14 +114,3 @@ footer {
 
 }
 
-.details{
-    display: flex;
-    justify-content: center;
-    flex-direction: row;
-    flex-wrap: wrap;
-    margin-top:auto;
-    width:auto;
-    height:90vh;
-    overflow: auto;
-    flex-grow:1;
-}
