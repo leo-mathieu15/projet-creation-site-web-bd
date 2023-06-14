@@ -73,7 +73,7 @@ html, body{
     height:65vh;
 }
 
-.movie__poster, .Actor__vignette{
+.movie__poster{
     overflow: auto;
     height:55%;
 }
@@ -162,4 +162,9 @@ footer {
     flex-wrap: wrap;
     width:60%;
     height:65vh;
+}
+
+.Actor__vignette{
+    height:auto;
+    width:40%;
 }
