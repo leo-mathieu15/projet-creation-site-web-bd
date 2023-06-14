@@ -18,7 +18,7 @@ class ActorCollection
     {
         $stmt = MyPdo::getInstance()->prepare(
             <<<'SQL'
-            SELECT *
+            SELECT p.*
             FROM people p 
             join cast c on p.id = c.peopleId
             WHERE movieId = :id
