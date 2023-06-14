@@ -24,20 +24,20 @@ $webPage->appendContent(<<<HTML
 <a class="basicinfo">{$movie->getReleaseDate()}</a><br/>
 <a>{$movie->getOriginalTitle()}</a><br/>
 <a>{$movie->getTagLine()}</a><br/>
-<a>{$movie->getOverview()}</a><br/></div>
+<a>{$movie->getOverview()}</a><br/></div></div><div>
 HTML);
 foreach ($actors as $actor) {
     $webPage->appendContent(<<<HTML
 <div class="acteurFilm">
 <img class="Actor__vignette" src="image.php?Id={$actor->getAvatarId()}" alt="poster de {$actor->getname()}"></a>
 <a>{$actor->getName()}</a>
-<a>{$actor->getRole((int)$_GET['Id'])}</a>
+<a></a>
 </div>
 HTML);
 }
 
 
-$webPage->appendContent("</div>"."<footer>Dernière modification : {$webPage->getLastModification()}</footer>");
+$webPage->appendContent("</div></div></div>"."<footer>Dernière modification : {$webPage->getLastModification()}</footer>");
 
 $page = $webPage->toHTML();
 echo $page;
