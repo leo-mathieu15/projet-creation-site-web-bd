@@ -11,7 +11,7 @@
     background: #00AAFF;
     text-decoration: none;
     color: black;
-    border-radius: 30px;
+    border-radius: 20%;
 }
 #box:hover{
     background: darkblue;
@@ -58,9 +58,8 @@ html, body{
     flex-direction: column;
     flex-wrap: wrap;
     margin-top:auto;
-    width:auto;
+    width:70%;
     height:94vh;
-    overflow: auto;
     flex-grow:1;
 }
 .movie__info{
@@ -71,6 +70,7 @@ html, body{
     width:60%;
     height:65vh;
 }
+
 .movie__poster {
     overflow: auto;
     height:55%;
@@ -129,3 +129,25 @@ footer {
     overflow: initial;
 }
 
+.acteurFilm:hover{
+    background: darkblue;
+    color: white;
+}
+
+#boxNomActeur, #boxAutre{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 1%;
+    margin: 1%;
+    width: 9em;
+    height: 9em;
+    border-style: solid;
+    border-color:#FFFFFF;
+    background: #00AAFF;
+    text-decoration: none;
+}
+#boxNomActeur:hover{
+    background: darkblue;
+    color: white;
+}
