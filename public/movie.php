@@ -24,7 +24,7 @@ $webPage->appendContent(<<<HTML
 <a class="basicinfo">{$movie->getReleaseDate()}</a><br/>
 <a>{$movie->getOriginalTitle()}</a><br/>
 <a>{$movie->getTagLine()}</a><br/>
-<a>{$movie->getOverview()}</a><br/></div>
+<a>{$movie->getOverview()}</a><br/></div></div><div>
 HTML);
 foreach ($actors as $actor) {
     $cast = Cast::findById($movie->getId(),$actor->getId());
@@ -38,7 +38,7 @@ HTML);
 }
 
 
-$webPage->appendContent("</div>"."<footer>Dernière modification : {$webPage->getLastModification()}</footer>");
+$webPage->appendContent("</div></div></div>"."<footer>Dernière modification : {$webPage->getLastModification()}</footer>");
 
 $page = $webPage->toHTML();
 echo $page;
