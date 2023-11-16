@@ -1,8 +1,14 @@
 # <div align="center">SAE - développement d'une application</div>
 
-## Auteurs : Léo MATHIEU (math0139) & Romain MONNEY (monn0042)
+## Auteurs : Léo MATHIEU & Romain MONNEY
 
 ___
+
+## Installation de Composer
+
+```
+composer install
+```
 
 ## Serveur Web local :
 
